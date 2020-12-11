@@ -39,11 +39,11 @@ namespace CristianMusicDB
                 CreateUser.Parameters.AddWithValue("@Country", DropDownList1.SelectedValue);
                 if (DropDownList2.SelectedValue == "Premium")
                 {
-                    CreateUser.Parameters.AddWithValue("@Subscription", 1);
+                    CreateUser.Parameters.AddWithValue("@Subscription", 2);
                 }
                 else
                 {
-                    CreateUser.Parameters.AddWithValue("@Subscription", 2);
+                    CreateUser.Parameters.AddWithValue("@Subscription", 1);
                 }
                 musicDB.Open();
                 int switchCase = 0;

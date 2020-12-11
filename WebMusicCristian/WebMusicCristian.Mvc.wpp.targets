@@ -1,0 +1,12 @@
+﻿<Project ToolsVersion="4.0" 
+         xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>   
+    <ExcludeFromPackageFolders Include="Internal">
+      <FromTarget>WebMusicCristian.Mvc.wpp.targets</FromTarget>
+    </ExcludeFromPackageFolders>
+    <ExcludeFromPackageFiles Include="fonts\glyphicons-halflings-regular.eot;fonts\glyphicons-halflings-regular.svg;fonts\glyphicons-halflings-regular.ttf;fonts\glyphicons-halflings-regular.woff;fonts\glyphicons-halflings-regular.woff2;Content\Site.css;Content\bootstrap-theme.css;favicon.ico;Content\bootstrap-theme.css.map;Content\bootstrap-theme.min.css;Content\bootstrap-theme.min.css.map;Content\bootstrap.css;Content\bootstrap.css.map;Content\bootstrap.min.css;Content\bootstrap.min.css.map;Content\bootstrap.css;Site.css">
+      <FromTarget>ContactManager.Mvc.wpp.targets</FromTarget>
+    </ExcludeFromPackageFiles>
+  </ItemGroup>
+</Project>
+

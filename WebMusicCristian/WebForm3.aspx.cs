@@ -815,6 +815,8 @@ namespace WebMusicCristian
                             DropDownList1.Items.Add(first);
                             DropDownList2.Items.Add(first);
                             Information.globalDropdown.Add(first);
+                            input2 = 0;
+                            userId2 = 0;
                         }
 
                         break;
