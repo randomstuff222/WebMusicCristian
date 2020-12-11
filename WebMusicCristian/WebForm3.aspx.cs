@@ -247,6 +247,7 @@ namespace WebMusicCristian
             playlist_Id.Connection = musicDB;
             Creeated.Connection = musicDB;
             playlist_Id.CommandText = ("SELECT DISTINCT Playlist_Id FROM PlaylistTbl WHERE (Playlist_Name = '" + DropDownList2.SelectedItem.Text + "')");
+            //playlist_Id.CommandText = ("SELECT Playlist_Id FROM PlaylistTbl WHERE (Created_By = " + Request.QueryString["id"] + "AND Playlist_Name = '" + DropDownList2.SelectedItem.Text + "' AND Song_Id = " + boxText + ")");
             Creeated.CommandText = ("SELECT DISTINCT Created_By FROM PlaylistTbl WHERE (Playlist_Name = '" + DropDownList2.SelectedItem.Text + "')");
 
 
@@ -273,7 +274,7 @@ namespace WebMusicCristian
             }
 
             String value = boxText;
-            SqlCommand compare = new SqlCommand("SELECT COUNT(1) FROM PlaylistTbl WHERE (Playlist_Id = " + playlistSelected + " AND Song_Id = " + value + ")", musicDB); ;
+            SqlCommand compare = new SqlCommand("SELECT COUNT(1) FROM PlaylistTbl WHERE (Created_By = " + Request.QueryString["id"] + "AND Playlist_Name = '" + DropDownList2.SelectedItem.Text + "' AND Song_Id = " + value + ")", musicDB);
             int repeated = 0;
             try
             {
@@ -300,7 +301,7 @@ namespace WebMusicCristian
                     songPlaylist.Parameters.AddWithValue("@PlaylistId", playlistSelected);
                     songPlaylist.Parameters.AddWithValue("@Song_Id", boxText);
                     songPlaylist.Parameters.AddWithValue("@Playlist_Name", DropDownList2.SelectedItem.Text);
-                    songPlaylist.Parameters.AddWithValue("@Created_By", User_Selected);
+                    songPlaylist.Parameters.AddWithValue("@Created_By", Request.QueryString["id"]);
                     int status = songPlaylist.ExecuteNonQuery();
 
                     if (status == 0)
@@ -385,7 +386,7 @@ namespace WebMusicCristian
             SqlCommand playlist_Id = new SqlCommand();
             SqlCommand Creeated = new SqlCommand();
             SqlCommand SongExist = new SqlCommand("SELECT COUNT(1) FROM Song WHERE Song_Id = " + boxText, musicDB);
-            SqlCommand playNumber = new SqlCommand("SELECT COUNT(*) FROM Song WHERE Song_Id = " + boxText, musicDB);
+            SqlCommand playNumber = new SqlCommand("SELECT COUNT(*) FROM PlaylistTbl WHERE Playlist_Name = '" + DropDownList2.SelectedItem.Text +"' AND Created_by = "+ Request.QueryString["id"], musicDB);
             int songLeft = (int)playNumber.ExecuteScalar();
             playlist_Id.Connection = musicDB;
             Creeated.Connection = musicDB;
