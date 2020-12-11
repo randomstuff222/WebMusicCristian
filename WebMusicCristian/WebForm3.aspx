@@ -14,10 +14,10 @@
 <script language="javascript" src="../Validation.js" type="text/javascript"></script>  
 <script type="text/javascript">
     function Validation() {  
-            if (OnlyEmpty('<%=TextBox2.ClientID%>', 'Incorrect Format on the Name of the New Playlist', true))  
-                if (OnlyEmpty('<%=TextBox3.ClientID%>', 'Incorrect Format on the Search Bar for the Name of Song', true))  
-                    if (OnlyEmpty('<%=TextBox4.ClientID%>', 'Incorrect Format on the Search Bar for the Artist of Song', true)) 
-                        if (OnlyEmpty('<%=TextBox5.ClientID%>', 'Incorrect Format on the "Song Number" Text Slot', true)) 
+            if (OnlyEmpty('<%=TextBox2.ClientID%>', 'Incorrect Format on the Name of the New Playlist'))  
+                if (OnlyEmpty('<%=TextBox3.ClientID%>', 'Incorrect Format on the Search Bar for the Name of Song'))  
+                    if (OnlyEmpty('<%=TextBox4.ClientID%>', 'Incorrect Format on the Search Bar for the Artist of Song')) 
+                        if (OnlyEmpty('<%=TextBox5.ClientID%>', 'Incorrect Format on the "Song Number" Text Slot')) 
                             return true;  
             return false;  
         }  

@@ -9,9 +9,9 @@
     <script language="javascript" src="../Validation.js" type="text/javascript"></script>  
 <script type="text/javascript">
     function Validation() {  
-            if (Required('<%=TextBox1.ClientID%>', 'Enter Username', true))  
-                if (Required('<%=TextBox3.ClientID%>', 'Enter Email', true))  
-                    if (Required('<%=TextBox4.ClientID%>', 'Enter Password', false))  
+            if (Required('<%=TextBox1.ClientID%>', 'Enter Username'))  
+                if (Required('<%=TextBox3.ClientID%>', 'Enter Email'))  
+                    if (Required('<%=TextBox4.ClientID%>', 'Enter Password'))  
                         return true;  
             return false;  
         }  
