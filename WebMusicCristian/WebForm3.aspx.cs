@@ -318,7 +318,7 @@ namespace WebMusicCristian
             //On Error, throw exception that triggers Text Input
             TextBox5.Text = ("");
             PlaceHolder2.Controls.Add(new Literal { Text = Information.finalTable });
-            PlaceHolder3.Controls.Add(new Literal { Text = Information.currentTable });
+            
             musicDB.Close();
 
         }
@@ -463,7 +463,6 @@ namespace WebMusicCristian
             TextBox5.Text = ("");
             musicDB.Close();
             PlaceHolder2.Controls.Add(new Literal { Text = Information.finalTable });
-            PlaceHolder3.Controls.Add(new Literal { Text = Information.currentTable });
         }
         protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -718,7 +717,6 @@ namespace WebMusicCristian
             SqlConnection musicDB = new SqlConnection("Server=tcp:cristian-music-server.database.windows.net,1433;Initial Catalog=CristianMusicDB;Persist Security Info=False;User ID=Nijacool;Password=Ahirunosora200;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             musicDB.Open();
             PlaceHolder2.Controls.Add(new Literal { Text = Information.finalTable });
-            PlaceHolder3.Controls.Add(new Literal { Text = Information.currentTable });
             //find how many playlists the user has, then add it with the playlist id being that number +1
             String userId = Request.QueryString["id"];
             String input = TextBox2.Text;
