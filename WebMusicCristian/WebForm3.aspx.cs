@@ -416,7 +416,8 @@ namespace WebMusicCristian
             }
 
             String value = boxText;
-            SqlCommand compare = new SqlCommand("SELECT COUNT(1) FROM PlaylistTbl WHERE (Playlist_Id = " + playlistSelected + " AND Song_Id = " + value + ")", musicDB); ;
+            //SqlCommand compare = new SqlCommand("SELECT COUNT(1) FROM PlaylistTbl WHERE (Playlist_Id = " + playlistSelected + " AND Song_Id = " + value + ")", musicDB);
+            SqlCommand compare = new SqlCommand("SELECT COUNT(1) FROM PlaylistTbl WHERE (Playlist_Name = '" + DropDownList2.SelectedItem.Text + "' AND Created_By = "+ Request.QueryString["id"] +" AND Song_Id = " + value + ")", musicDB);
             int repeated = 0;
             try
             {
@@ -434,7 +435,10 @@ namespace WebMusicCristian
                     Label9.Text = ("Song does not exist in the database");
                     break;
                 default:
-                    SqlCommand deleteSong = new SqlCommand("DELETE FROM PlaylistTbl WHERE (Playlist_Id = " + playlistSelected + " AND Song_id = " + boxText + ")", musicDB);
+                    //SqlCommand deleteSong = new SqlCommand("DELETE FROM PlaylistTbl WHERE (Playlist_Id = " + playlistSelected + " AND Song_id = " + boxText + ")", musicDB);
+                    SqlCommand deleteSong = new SqlCommand("DELETE FROM PlaylistTbl WHERE (Playlist_Name = '" + DropDownList2.SelectedItem.Text + "' AND Created_By = "+ Request.QueryString["id"] +" AND Song_id = " + boxText + ")", musicDB);
+
+
                     int status = deleteSong.ExecuteNonQuery();
 
                     if (status == 0)
