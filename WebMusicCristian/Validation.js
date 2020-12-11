@@ -1,4 +1,17 @@
 ﻿
+function OnlyEmpty(ctrlID, ctrlName) {
+    var txtControl = document.getElementById(ctrlID);
+    var string = document.getElementById(ctrlID).value;
+    var result2 = !/[^0-9A-Za-z!@#$%&*()_\-.+={[}\]]/.test(string)
+
+    if (result2 == false) {
+        alert(' Currently, you are using illegal characters \n Please Use valid inputs for the " ' + ctrlName + ' " field.');
+        txtControl.focus();
+
+        return false;
+    }
+    return true;
+}
 function Required(ctrlID, ctrlName) {
     var txtControl = document.getElementById(ctrlID);
     var string = document.getElementById(ctrlID).value;
@@ -12,8 +25,8 @@ function Required(ctrlID, ctrlName) {
         return false;
     }
 
-    if (txtControl.value == "" ) {
-        alert('Enter a valid ' + ctrlName + '.');
+    if (txtControl.value == "") {
+        alert('Enter a valid '+ ctrlName + '.');
         txtControl.focus();
 
         return false;
