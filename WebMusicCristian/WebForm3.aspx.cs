@@ -856,7 +856,7 @@ namespace WebMusicCristian
 
                 SqlCommand cmd = new SqlCommand();
 
-                cmd.CommandText = "SELECT * FROM PlaylistTbl WHERE (Playlist_Id = " + DropDownList1.SelectedItem.Value + ")";
+                cmd.CommandText = "SELECT * FROM PlaylistTbl WHERE (Playlist_Name = " + DropDownList1.SelectedItem.Text + " AND Created_By = "+ Request.QueryString["id"] + ")";
                 cmd.Connection = musicDB;
                 SqlDataReader rd = cmd.ExecuteReader();
                 SqlCommand displaySongsId = new SqlCommand();
