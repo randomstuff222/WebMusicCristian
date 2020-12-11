@@ -847,6 +847,10 @@ namespace WebMusicCristian
             {
 
             }
+            if(DropDownList1.SelectedItem.Text.Length >= 15)
+            {
+                Label7.Text = "Playlist Name is too long";
+            }
             else
             {
                 StringBuilder temp = new StringBuilder();
@@ -856,7 +860,7 @@ namespace WebMusicCristian
 
                 SqlCommand cmd = new SqlCommand();
 
-                cmd.CommandText = "SELECT * FROM PlaylistTbl WHERE (Playlist_Name = " + DropDownList1.SelectedItem.Text + " AND Created_By = "+ Request.QueryString["id"] + ")";
+                cmd.CommandText = "SELECT * FROM PlaylistTbl WHERE (Playlist_Name = '" + DropDownList1.SelectedItem.Text + "' AND Created_By = "+ Request.QueryString["id"] + ")";
                 cmd.Connection = musicDB;
                 SqlDataReader rd = cmd.ExecuteReader();
                 SqlCommand displaySongsId = new SqlCommand();
